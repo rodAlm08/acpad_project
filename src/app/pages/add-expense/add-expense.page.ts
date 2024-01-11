@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
@@ -10,8 +10,17 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { ChangeDetectorRef } from '@angular/core';
 import { ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
-import {  AlertController} from '@ionic/angular';
-import { arrayRemove, collection, deleteDoc, doc, getDoc, getDocs, writeBatch } from '@angular/fire/firestore';
+import { AlertController } from '@ionic/angular';
+import {
+  arrayRemove,
+  collection,
+  deleteDoc,
+  doc,
+  getDoc,
+  getDocs,
+  writeBatch,
+  updateDoc
+} from '@angular/fire/firestore';
 import { Firestore } from '@angular/fire/firestore';
 import { ChartService } from '../../services/chart.service';
 import { ViewChild, ElementRef } from '@angular/core';
@@ -19,7 +28,7 @@ import { CanvasWithChart } from '../../services/chart.service';
 import { OnDestroy } from '@angular/core';
 import { ViewDidEnter } from '@ionic/angular';
 import { ExportDataService } from 'src/app/services/export-data.service';
-import {DomSanitizer} from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 import { DownloadViewerModalComponent } from '../download-viewer-modal/download-viewer-modal.component';
 
 @Component({
@@ -33,6 +42,10 @@ export class AddExpensePage implements OnInit, OnDestroy, ViewDidEnter {
   @ViewChild('doughnutChart', { static: false }) doughnutChartCanvas:
     | ElementRef
     | undefined;
+
+   
+    expenseUpdated: EventEmitter<any> = new EventEmitter<any>();
+
 
   // Define the expense categories
   expenseCategories: { name: string; icon: string }[] = [
@@ -124,7 +137,7 @@ export class AddExpensePage implements OnInit, OnDestroy, ViewDidEnter {
             if (budget) {
               this.budget = budget;
               this.calculateRemainingAmount();
-            //  console.log('Budget inside add-expense:', this.budget);
+              //  console.log('Budget inside add-expense:', this.budget);
 
               // Check if expenses is defined before preparing doughnut chart data
               if (this.budget.expenses) {
@@ -190,18 +203,15 @@ export class AddExpensePage implements OnInit, OnDestroy, ViewDidEnter {
       datasets: [
         {
           data: expenses.map((expense) => expense.amount),
-          backgroundColor: this.chartService.generateRandomColors(expenses.length),
+          backgroundColor: this.chartService.generateRandomColors(
+            expenses.length
+          ),
         },
       ],
     };
     return data;
   }
 
-
-
-  
-
- 
   //loadBudgetDetails method to load the budget details
   async loadBudgetDetails(budgetId: string) {
     try {
@@ -222,7 +232,11 @@ export class AddExpensePage implements OnInit, OnDestroy, ViewDidEnter {
     }
   }
 
-  async deleteExpense(expenseId: string | undefined, budgetId: string) {
+  async deleteExpense(expenseId: string, budgetId: string) {
+
+    console.log('Expense ID:', expenseId);
+    console.log('Budget ID:', budgetId);
+
     try {
       // Check if the expenseId is valid
       if (!expenseId) {
@@ -247,13 +261,13 @@ export class AddExpensePage implements OnInit, OnDestroy, ViewDidEnter {
                 const batch = writeBatch(firestore);
   
                 // Get the budget document reference
-                const budgetRef = collection(firestore, 'budgets', budgetId);
-                const budgetSnapshot = await getDocs(budgetRef);
+                const budgetRef = doc(firestore, 'budgets', budgetId);
+                console.log('Budget Ref:', budgetRef);
+                const budgetSnapshot = await getDoc(budgetRef);
+                console.log('Budget Snapshot:', budgetSnapshot);
   
-                if (budgetSnapshot.docs.length > 0) {
-                  const budgetDoc = budgetSnapshot.docs[0];
-  
-                  // Get the expenses array from the budget document
+                if (budgetSnapshot.exists()) {
+                  const budgetDoc = budgetSnapshot;
                   const expenses = budgetDoc.data()?.['expenses'] || [];
   
                   // Find the index of the expense in the expenses array
@@ -295,8 +309,7 @@ export class AddExpensePage implements OnInit, OnDestroy, ViewDidEnter {
   }
   
   
-
-  
+ 
 
   // Method to get the icon based on the expense title
   getIconForExpense(expenseTitle: string): string {
@@ -418,12 +431,16 @@ export class AddExpensePage implements OnInit, OnDestroy, ViewDidEnter {
 
   exportData() {
     this.ExportData.exportToPDF('contentToExport')
-      .then(blobUrl => {
-        this.modalController.create({
-          component: DownloadViewerModalComponent,
-          componentProps: { pdfUrl: this.sanitizer.bypassSecurityTrustResourceUrl(blobUrl) }
-        }).then(modal => modal.present());
+      .then((blobUrl) => {
+        this.modalController
+          .create({
+            component: DownloadViewerModalComponent,
+            componentProps: {
+              pdfUrl: this.sanitizer.bypassSecurityTrustResourceUrl(blobUrl),
+            },
+          })
+          .then((modal) => modal.present());
       })
-      .catch(error => console.error('Export failed', error));
+      .catch((error) => console.error('Export failed', error));
   }
 }

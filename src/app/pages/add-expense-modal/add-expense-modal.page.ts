@@ -42,8 +42,12 @@ export class AddExpenseModalPage implements OnInit {
     title: this.selectedCategory,
     amount: this.expenseValue || 0,
     timestamp: new Date(),
+    expenseId: '', // Leave this empty for now
+
     userId: userId,
   };
+
+
 
   try {
     // Use the service to create the expense

@@ -25,7 +25,7 @@ export class LoginPage  {
   // The form controls are the individual fields of the form. The form group is used to track the value and
   // validity state of the form controls. credentials is the name of the form group.
     credentials = this.fb.nonNullable.group({
-    email: ['rodrigoalmeida08@hotmail.com', [Validators.required, Validators.email]],
+    email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]],
   }); 
 

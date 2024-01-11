@@ -45,10 +45,10 @@
       </ion-item>
     
          
-      <!-- Item options for updating and deleting -->
+      <!-- Item options for deleting -->
       <ion-item-options side="end">
             
-        <ion-item-option color="danger" (click)="deleteExpense(expense.expenseId, budget?.id || '')">
+        <ion-item-option color="danger" (click)="deleteExpense(expense?.expenseId || '', expense.budgetId || '')">
           <ion-icon name="trash-outline" slot="icon-only"></ion-icon>
         </ion-item-option>
         

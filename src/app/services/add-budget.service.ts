@@ -30,7 +30,7 @@ export interface Expense {
   amount: number;
   timestamp?: Date;
   budgetId?: string;
-  expenseId?: string;
+  expenseId: string;
   userId: string | null;
 }
 
@@ -240,6 +240,7 @@ export class AddBudgetService {
           amount: expense.amount,
           timestamp: new Date(),
           budgetId: budgetId,
+          expenseId: '', // Leave this empty for now
           userId: userId, // Await the result here
         };
   
@@ -353,6 +354,19 @@ async updateExpense(expense: Expense, budgetId: string) {
   }
 }
 
+ // Delete an expense document from Firestore
+ async deleteExpenseDocument(expenseId: string) {
+  try {
+    // Create a reference to the expense document
+    const expenseRef = doc(this.firestore, `expenses/${expenseId}`);
+
+    // Delete the expense document from Firestore
+    await deleteDoc(expenseRef);
+  } catch (error) {
+    console.error('Error deleting expense document:', error);
+    throw error;
+  }
+}
 
 
   // Updates the remaining amount of a budget

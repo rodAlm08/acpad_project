@@ -38,3 +38,18 @@ ion-card {
     border: 1px solid #ccc;
     background-color: #f9f9f9;
   }  
+
+  .barChart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 400px;
+    margin: auto; /* Add this to center the container itself if needed */
+  }
+  
+  .barChart-container canvas {
+    width: 100%; /* Updated */
+    height: 100%; /* Updated */
+  }
+  
