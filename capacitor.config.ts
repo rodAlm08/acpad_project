@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId: 'com.rodalm.budgetplanner',
   appName: 'Budget Planner',
   webDir: 'www',
   server: {
