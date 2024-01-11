@@ -11,6 +11,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './add-expense-modal.page.html',
   styleUrls: ['./add-expense-modal.page.scss'],
 })
+
+//this class is used to manage the add expense modal page
 export class AddExpenseModalPage implements OnInit {
   @Input() expenseCategories!: { name: string; icon: string }[];
   @Input() budgetId: any; // Accept budgetId as an input
@@ -29,6 +31,7 @@ export class AddExpenseModalPage implements OnInit {
 
  ngOnInit() {}
 
+// Function to add an expense
  async addExpense() {
   console.log('Selected Category:', this.selectedCategory);
   console.log('Expense Value:', this.expenseValue);
@@ -42,7 +45,7 @@ export class AddExpenseModalPage implements OnInit {
     title: this.selectedCategory,
     amount: this.expenseValue || 0,
     timestamp: new Date(),
-    expenseId: '', // Leave this empty for now
+    expenseId: '', 
 
     userId: userId,
   };

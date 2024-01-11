@@ -37,6 +37,7 @@ import { DownloadViewerModalComponent } from '../download-viewer-modal/download-
   styleUrls: ['./add-expense.page.scss'],
   changeDetection: ChangeDetectionStrategy.Default,
 })
+//this class is used to add expenses to the budget
 export class AddExpensePage implements OnInit, OnDestroy, ViewDidEnter {
   // Use ViewChild to get a reference to the canvas element
   @ViewChild('doughnutChart', { static: false }) doughnutChartCanvas:
@@ -429,6 +430,7 @@ export class AddExpensePage implements OnInit, OnDestroy, ViewDidEnter {
     }
   }
 
+  //exportData method to export the data
   exportData() {
     this.ExportData.exportToPDF('contentToExport')
       .then((blobUrl) => {

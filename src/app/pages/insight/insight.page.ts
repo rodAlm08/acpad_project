@@ -83,6 +83,7 @@ export class InsightPage implements OnInit {
     }
   }
 
+  // Function to prepare the bar chart data
   private prepareBarChartData(budgets: Budget[]): any {
     const labels: string[] = [];
     const datasets: any[] = [];
