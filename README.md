@@ -13,7 +13,8 @@
 ## Introduction
 
 Budget Planner is a user-friendly application developed for financial management. Built using the latest Ionic framework with Angular, this app incorporates `Capacitor` for native device integration, allowing for functionalities like saving files directly on the device.
-It also uses `Angular Material` for a refined user interface, `Chart.js` for dynamic financial data representation, and `jsPDF` and `html2canvas` for generating downloadable PDF reports.
+It also uses `Angular Material` for a refined user interface, `Chart.js` for dynamic financial data representation, and `jsPDF` and `html2canvas` for generating downloadable PDF reports. 
+
 
 ## Install the app on your `Android` by scanning the QR code below.
 
@@ -64,13 +65,56 @@ It also uses `Angular Material` for a refined user interface, `Chart.js` for dyn
 
 ## Components:
 
-1. **AddBudgetPage** ***(STANDALONE)***: Allows users to add a new budget.
+1. **LoginPage**: Manages user login and registration.
+
+    Methods:
+    - `register()`: Registers a new user.
+    - `login()`: Authenticates a user.
+    - `sendReset()`: Sends a password reset email.
+
+<div align="center">
+    <img src="src/assets/screenshots/login_page.png" width="30%" alt="ATU Logo">
+</div>
+
+
+2. **HomePage**: The main dashboard shows an overview of budgets. User authentication, form handling, alerts for feedback.
+
+    Methods:
+    - `getBadgeColor(remainingAmount: number | undefined)`: Returns the badge color based on the remaining amount.
+    - `getFontColor(remainingAmount: number | undefined)`: Returns the font color based on the remaining amount
+    - `loadBudgets()`: Loads all budgets for the current user.
+    - `deleteBudget()`: Deletes a budget.
+    - `editBudget()`: Opens the modal to edit a budget.
+    - `openUpdateInput()`: Opens the update input alert for a budget.
+
+<div align="center">
+    <img src="src/assets/screenshots/menu.png" width="30%" alt="ATU Logo">
+</div>
+
+
+
+3. **AddBudgetPage** ***(STANDALONE)***: Allows users to add a new budget.
 
     Methods:
     - `addBudget()`: Adds a new budget.
     - `closeModal()`: Closes the modal.
 
-2. **AddExpensePage**: This enables users to add expenses to a budget.
+<div align="center">
+    <img src="src/assets/screenshots/add_budget.png" width="30%" alt="ATU Logo">
+    <img src="src/assets/screenshots/budget_added.png" width="29.8%" alt="ATU Logo">
+</div>
+
+4. **Add-expense-modal**: This class is used to manage the add-expense modal page. It injects `{ ModalController } from '@ionic/angular'`. Expense category selection, form submission for expense addition.
+
+    Methods:
+    - `addExpense()`: Method to add an expense.
+    - `closeModal()`: Method to close the modal.
+
+<div align="center">
+    <img src="src/assets/screenshots/add_expense.png" width="30%" alt="ATU Logo">
+</div>
+
+5. **AddExpensePage**: This enables users to add expenses to a budget.
 Expense addition, budget detail loading, doughnut chart rendering, alert and modal handling.
 
     Methods:
@@ -81,39 +125,34 @@ Expense addition, budget detail loading, doughnut chart rendering, alert and mod
     - `getIconForExpense()`: gets the icon based on the expense title.
     - `exportData()`: method to export the data
 
-3. **Add-expense-modal**: This class is used to manage the add-expense modal page. It injects `{ ModalController } from '@ionic/angular'`. Expense category selection, form submission for expense addition.
+<div align="center">
+    <img src="src/assets/screenshots/total_expenses.png" width="29.8%" alt="ATU Logo">
+</div>
+
+
+
+6. **Download-Viewer-Modal**: This class displays downloadable content injecting `{ ModalController } from '@ionic/angular'`. Presents generated PDFs for download.
 
     Methods:
-    - `addExpense()`: Method to add an expense.
     - `closeModal()`: Method to close the modal.
 
-4. **Download-Viewer-Modal**: This class displays downloadable content injecting `{ ModalController } from '@ionic/angular'`. Presents generated PDFs for download.
+<div align="center">
+    <img src="src/assets/screenshots/download.png" width="30%" >
+    <img src="src/assets/screenshots/saving _edge.png" width="30%" >
+</div>
 
-    Methods:
-    - `closeModal()`: Method to close the modal.
+Click on the link below to access the pdf printed:
 
+[Click here to view printed PDF](./src/assets/pdf/f45ca756-ef67-443c-8870-f4fbf2deb84e.pdf)
 
-4. **HomePage**: The main dashboard shows an overview of budgets. User authentication, form handling, alerts for feedback.
-
-    Methods:
-    - `getBadgeColor(remainingAmount: number | undefined)`: Returns the badge color based on the remaining amount.
-    - `getFontColor(remainingAmount: number | undefined)`: Returns the font color based on the remaining amount
-    - `loadBudgets()`: Loads all budgets for the current user.
-    - `deleteBudget()`: Deletes a budget.
-    - `editBudget()`: Opens the modal to edit a budget.
-    - `openUpdateInput()`: Opens the update input alert for a budget.
-
-4. **InsightPage**: Provides insights and analytics of the user's budgets. Bar chart representation of budgets, data filtering and preparation.
+7. **InsightPage**: Provides insights and analytics of the user's budgets. Bar chart representation of budgets, data filtering and preparation.
 
     Methods:
     - `prepareBarChartData()`: Prepares data for the bar chart.
 
-5. **LoginPage**: Manages user login and registration.
-
-    Methods:
-    - `register()`: Registers a new user.
-    - `login()`: Authenticates a user.
-    - `sendReset()`: Sends a password reset email.
+<div align="center">
+    <img src="src/assets/screenshots/insights.png" width="30%" alt="ATU Logo">
+</div>
 
 
 
