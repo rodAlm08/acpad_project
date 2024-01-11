@@ -1,8 +1,8 @@
 {
   "name": "finance-manager",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "Rodrigo Almeida",
+  "homepage": "https://www.linkedin.com/in/rodrigoalmeida08/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
