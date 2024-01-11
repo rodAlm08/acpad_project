@@ -1,0 +1,34 @@
+<ion-header class="my-custom-theme">
+  <ion-toolbar color="primary">
+    <ion-title>Add Expense</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding my-custom-theme" >
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-label>Select Category</ion-label>
+        <ion-select placeholder="Select category" [(ngModel)]="selectedCategory">
+          <ion-select-option *ngFor="let category of expenseCategories" [value]="category.name">
+            {{ category.name }}
+          </ion-select-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-label>Expense Value</ion-label>
+        <ion-input type="number" [(ngModel)]="expenseValue" placeholder="Enter expense value"></ion-input>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- For simplicity, let's just use a button to close the modal -->
+  <ion-button expand="full" (click)="addExpense()">Add Expense</ion-button>
+</ion-content>

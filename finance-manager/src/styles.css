@@ -1,0 +1,30 @@
+@import '@angular/material/prebuilt-themes/pink-bluegrey.css';
+
+body {
+  background-color: var(--ion-color-light);
+  font-family: 'Arial', sans-serif;
+  color: var(--ion-color-dark);
+}
+
+.my-custom-theme {
+  --ion-color-primary: #e91e63; /* Pink */
+  --ion-color-primary-contrast: #fff;
+  --ion-color-secondary: #607d8b; /* Blue Grey */
+  --ion-color-secondary-contrast: #fff;
+  /* Add more color variables as needed */
+}
+
+.my-custom-theme ion-header,
+.my-custom-theme ion-menu  {
+  --ion-background-color: var(--ion-color-primary);
+  --ion-text-color: var(--ion-color-light);
+}
+
+.my-custom-theme ion-menu ion-content,
+.my-custom-theme ion-menu ion-content ion-list,
+.my-custom-theme ion-menu ion-content ion-item,
+.my-custom-theme ion-menu ion-content ion-label {
+  --ion-background-color: var(--ion-color-primary);
+  --ion-text-color: var(--ion-color-light);
+}
+

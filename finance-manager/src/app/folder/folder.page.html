@@ -1,0 +1,27 @@
+<ion-header color="primary" [translucent]="true">
+  <ion-toolbar color="primary">
+    <!-- Wrap ion-menu-button with ion-menu-toggle -->
+    <ion-buttons slot="start" color="primary">
+      <ion-menu-toggle auto-hide="false">
+        <ion-menu-button menu="main-menu">
+          <!-- You can customize the content inside the button if needed -->
+          <ion-icon name="menu"></ion-icon>
+        </ion-menu-button>
+      </ion-menu-toggle>
+    </ion-buttons>
+    <ion-title>{{ folder }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="my-custom-theme" [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar color="primary">
+      <ion-title size="large">{{ folder }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <strong class="capitalize">{{ folder }}</strong>
+    
+  </div>
+</ion-content>

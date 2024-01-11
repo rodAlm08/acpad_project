@@ -1,0 +1,40 @@
+/* Example styles - adjust based on your design */
+ion-card {
+    margin: 10px;
+  }
+  
+  ion-card-header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .chart-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .chart-item {
+    margin: 10px;
+  }
+  
+  canvas {
+    width: 400px;
+    height: 300px;
+  }
+  
+  .chart-item {
+    /* Set a fixed width for each chart container */
+    width: 400px;
+  
+    /* Set a fixed height for each chart container */
+    height: 300px;
+  
+    /* Add additional styling if needed, such as margin or padding */
+    margin: 10px;
+    padding: 20px;
+  
+    /* Ensure the container has a border or background color for visibility */
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+  }  

@@ -1,0 +1,91 @@
+<!-- Header section -->
+<ion-header class="my-custom-theme">
+  <!-- Container for the background logo -->
+  <div class="background-logo"></div>
+  <!-- Toolbar with the title -->
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">Welcome to your Finance Manager App</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- Content section -->
+<ion-content class="ion-padding my-custom-theme">
+  
+  <!-- Form for login -->
+  <form [formGroup]="credentials" (ngSubmit)="login()">
+    <!-- Email Input -->
+    <ion-item class="ion-margin-bottom">
+      <ion-label position="stacked" color="primary">Email</ion-label>
+      <ion-input
+        type="email"
+        formControlName="email"
+        required
+        color="primary"
+        [placeholder]="'user@email.com'"
+        [value]="credentials.controls.email.value"
+      ></ion-input>
+      <!-- Note for invalid email -->
+      <ion-note
+        slot="end"
+        *ngIf="(email.dirty || email.touched) && email.errors"
+        color="danger"
+      >
+        Invalid email address
+      </ion-note>
+    </ion-item>
+
+    <!-- Password Input -->
+    <ion-item class="ion-margin-bottom">
+      <ion-label position="stacked" color="primary">Password</ion-label>
+      <ion-input
+        type="password"
+        formControlName="password"
+        required
+        minlength="6"
+        color="primary"
+      ></ion-input>
+      <!-- Note for invalid password -->
+      <ion-note
+        slot="end"
+        *ngIf="(password.dirty || password.touched) && password.errors"
+        color="danger"
+      >
+        Password must be at least 6 characters
+      </ion-note>
+    </ion-item>
+
+    <!-- Log In Button -->
+    <ion-button
+      type="submit"
+      expand="full"
+      shape="round"
+      color="primary"
+      [disabled]="!credentials.valid"
+    >
+      Log in
+    </ion-button>
+
+    <!-- Register Button -->
+    <ion-button
+      type="button"
+      expand="full"
+      shape="round"
+      color="primary"
+      [disabled]="!credentials.valid"
+      (click)="register()"
+    >
+      Register for an Account
+    </ion-button>
+
+    <!-- Reset Password Button -->
+    <ion-button
+      expand="full"
+      shape="round"
+      color="primary"
+      (click)="sendReset()"
+      [disabled]="email.invalid"
+    >
+      Reset Password
+    </ion-button>
+  </form>
+</ion-content>

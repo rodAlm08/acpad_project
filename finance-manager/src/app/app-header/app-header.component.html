@@ -1,0 +1,25 @@
+<!-- Header section -->
+<ion-header class="my-custom-theme">
+ 
+<ion-header class="my-custom-theme">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-toggle>
+        <ion-button>
+          <ion-icon slot="icon-only" name="menu"></ion-icon>
+        </ion-button>
+      </ion-menu-toggle>
+    </ion-buttons>
+
+    <ion-title class="ion-text-center">Finance Manager</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="exportData()">
+        <ion-icon slot="icon-only" name="download-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

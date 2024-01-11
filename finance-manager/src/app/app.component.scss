@@ -1,0 +1,26 @@
+ion-list, ion-list-header, ion-menu-toggle, ion-menu, ion-item {
+    --background: #e91e63;
+    --color: #fff;
+    --border-width: 0 0 10px 0;
+    --border-color: #e91e63;
+    --border-style: double;
+  }
+  
+  ion-menu {
+    --ion-background-color: #e91e63;
+  }
+
+
+  
+  .larger-header {
+    font-size: 1.5em; /* Adjust the font size as needed */
+  }
+  
+/* Add this CSS to create dividers */
+.menu-item {
+    border-bottom: 1px solid white; /* Pink color */
+    padding-bottom: 8px; /* Adjust the padding as needed */
+    margin-bottom: 8px; /* Adjust the margin as needed */
+  }
+  
+  

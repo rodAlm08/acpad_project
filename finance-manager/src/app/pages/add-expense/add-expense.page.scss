@@ -1,0 +1,14 @@
+.doughnut-chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    margin: auto; /* Add this to center the container itself if needed */
+  }
+  
+  .doughnut-chart-container canvas {
+    width: 100%; /* Updated */
+    height: 100%; /* Updated */
+  }
+  

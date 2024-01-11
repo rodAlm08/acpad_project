@@ -1,0 +1,12 @@
+<ion-content class="my-custom-theme">
+  <ion-toolbar color="primary">
+    <ion-title>Download</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <iframe *ngIf="pdfUrl" [src]="pdfUrl" width="100%" height="100%"></iframe>
+
+</ion-content>

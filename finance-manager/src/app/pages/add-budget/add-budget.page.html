@@ -1,0 +1,24 @@
+<ion-header class="my-custom-theme">
+  <ion-toolbar color="primary">
+    <ion-title>Please add a Budget.</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding my-custom-theme">
+  <ion-item>
+    <ion-label position="floating">Budget Title</ion-label>
+    <ion-input [(ngModel)]="budgetTitle" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">The cost for budget</ion-label>
+    <ion-input type="number" [(ngModel)]="budgetAmount" required></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="addBudget()">Complete</ion-button>
+</ion-content>

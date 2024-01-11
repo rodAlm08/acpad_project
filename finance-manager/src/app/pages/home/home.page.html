@@ -1,0 +1,76 @@
+<ion-content class="ion-padding my-custom-theme" id="contentToExport">
+  <app-header class="my-custom-theme"></app-header>
+ 
+
+  <!-- Container for the background logo -->
+  <div class="background-logo"></div>
+
+  <!-- Display error message if it exists -->
+  <div *ngIf="errorMessage" class="error-message text-under-logo">
+    <p>{{ errorMessage }}</p>
+  </div>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let budget of budgets$ | async">
+      <ion-item (click)="openAddExpensePage(budget)">
+        <!-- Use <ion-label> for styling -->
+        <ion-label >
+          <!-- Ionic Grid to structure the layout -->
+          <ion-grid>
+            <ion-row class="ion-align-items-center">
+              <!-- Column for title -->
+              <ion-col size="8">
+                <!-- Bold title -->
+                <h3 style="font-weight: bold;">{{ budget.title }}</h3>
+                <!-- Light gray timestamp -->
+                <p style="color: lightgray;">{{ formatTimestamp(budget.timestamp) | date:'medium' }}</p>
+              </ion-col>
+
+              <ion-col size="4" class="ion-text-end">
+                <!-- Use property binding to dynamically set the badge color -->
+                <ion-badge [style.background-color]="getBadgeColor(budget.remainingAmount)"
+                           [style.color]="getFontColor(budget.remainingAmount)" style="font-size: larger;">
+                  {{ budget.remainingAmount | currency:'EUR':'symbol' }}
+                </ion-badge>
+              </ion-col>
+            </ion-row>
+
+            <!-- Additional details -->
+            <ion-row>
+              <!-- Budget total amount -->
+              <ion-col>
+                <p>Initial Budget: {{ budget.amount | currency:'EUR':'symbol' }}</p>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <!-- Total expenses in red with a negative sign -->
+              <ion-col>
+                <p style="color: red;">
+                  Total Expenses: -{{ budget.totalExpenses | currency:'EUR':'symbol' }}
+                </p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-label>
+      </ion-item>
+
+      <!-- Sliding buttons for editing and deleting -->
+      <ion-item-options side="end">
+        <ion-item-option color="primary" (click)="openUpdateInput(budget)">
+          <ion-icon name="pencil-outline" slot="icon-only"></ion-icon>
+        </ion-item-option>
+        <ion-item-option color="danger" (click)="budget.id && deleteBudget(budget)">
+          <ion-icon name="trash-outline" slot="icon-only"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <!-- Add budget button -->
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="openAddBudgetModal()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

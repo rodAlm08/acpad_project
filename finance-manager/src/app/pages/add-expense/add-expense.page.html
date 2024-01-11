@@ -1,0 +1,82 @@
+<ion-header class="my-custom-theme">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button [defaultHref]="'/'"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">{{budget.title}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="toggleDoughnutChart()">
+        <ion-icon name="pie-chart-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="exportData()">
+        <ion-icon slot="icon-only" name="download-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding my-custom-theme" id="contentToExport">
+  <ion-list>
+    <!-- Display budget information -->
+    <ion-item>
+      <ion-label>Budget</ion-label>
+      <ion-text>{{ budget.amount | currency:'EUR':'symbol' }}</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label>Total Expenses</ion-label>
+      <ion-text>{{ '-' }}{{ budget.totalExpenses | currency:'EUR':'symbol' }}</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label>Remaining</ion-label>
+      <ion-text>{{ budget.remainingAmount | currency:'EUR':'symbol' }}</ion-text>
+    </ion-item>
+
+    <!-- Divider for Expenses section -->
+    <ion-item-divider>
+      <ion-label>Expenses</ion-label>
+    </ion-item-divider>
+
+    <ion-item-sliding *ngFor="let expense of budget.expenses || []">
+      <!-- Display expense details -->
+      <ion-item>
+        <ion-icon [name]="getIconForExpense(expense.title)" slot="start"></ion-icon>
+        <ion-label>{{ expense.title }}</ion-label>
+        <ion-text slot="end" color="danger">{{ '-' }}{{ expense.amount | currency:'EUR':'symbol' }}</ion-text>
+      </ion-item>
+    
+         
+      <!-- Item options for updating and deleting -->
+      <ion-item-options side="end">
+            
+        <ion-item-option color="danger" (click)="deleteExpense(expense.expenseId, budget?.id || '')">
+          <ion-icon name="trash-outline" slot="icon-only"></ion-icon>
+        </ion-item-option>
+        
+        
+        
+      </ion-item-options>
+    </ion-item-sliding>
+    
+    
+  </ion-list>
+
+ <!-- Card for Doughnut Chart -->
+ <ion-card *ngIf="showDoughnutChart">
+  <ion-card-header>
+   
+  </ion-card-header>
+  <ion-card-content>
+    <div class="doughnut-chart-container">
+      <canvas #doughnutChart style="width: 100%; height: 100%;"></canvas>
+    </div>
+    
+  </ion-card-content>
+</ion-card>
+
+  <!-- Add a floating action button to add expenses -->
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="openModal()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
