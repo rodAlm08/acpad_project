@@ -68,5 +68,14 @@
     "ts-node": "^8.3.0",
     "typescript": "~5.2.2"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "main": "karma.conf.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/rodAlm08/acpad_project.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rodAlm08/acpad_project/issues"
+  }
 }
