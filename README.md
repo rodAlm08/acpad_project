@@ -19,11 +19,11 @@ It also uses `Angular Material` for a refined user interface, `Chart.js` for dyn
 ## Install the app on your `Android` by scanning the QR code below.
 
 <div align="center">
-    <img src="./src/assets/installApp.png" width="40%" alt="ATU Logo">
+    <img src="./src/assets/installAPK.png" width="40%" alt="ATU Logo">
 </div>
 
 ## Key Components
-<a href="https://atlantictu-my.sharepoint.com/:v:/g/personal/g00377123_atu_ie/EcshONzekjFEuAgy1mM4Oa4Bw3z8bxbtk8pBRDcxoGL2XQ?e=Uq2tVP&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWFBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D" target="_blank" style="background-color: #007bff; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; border-radius: 5px;">Click here to view screencast</a>
+<a href="https://atlantictu-my.sharepoint.com/:v:/g/personal/g00377123_atu_ie/EfgDdXxNjZxOosd5OccKqJcBXTQX9onml6GKnwHQJNhqpA" target="_blank" style="background-color: #007bff; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; border-radius: 5px;">Click here to view screencast</a>
 
 ## Services:
 1. **AddBudgetService**: Manages budget-related operations.
