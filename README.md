@@ -21,7 +21,9 @@ It also uses `Angular Material` for a refined user interface, `Chart.js` for dyn
 <div align="center">
     <img src="./src/assets/installApp.png" width="40%" alt="ATU Logo">
 </div>
+
 ## Key Components
+<a href="https://atlantictu-my.sharepoint.com/:v:/g/personal/g00377123_atu_ie/EcshONzekjFEuAgy1mM4Oa4Bw3z8bxbtk8pBRDcxoGL2XQ?e=Uq2tVP&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWFBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D" target="_blank" style="background-color: #007bff; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; border-radius: 5px;">Click here to view screencast</a>
 
 ## Services:
 1. **AddBudgetService**: Manages budget-related operations.
@@ -137,7 +139,7 @@ Expense addition, budget detail loading, doughnut chart rendering, alert and mod
     - `closeModal()`: Method to close the modal.
 
 <div align="center">
-    <img src="src/assets/screenshots/download.png" width="30%" >
+    <img src="src/assets/screenshots/download.png" width="31.8%" >
     <img src="src/assets/screenshots/saving _edge.png" width="30%" >
 </div>
 
@@ -263,7 +265,7 @@ While developing the Budget Planner Application, several challenges were encount
 3. **Appflow**: Issues with build configurations, and problems encountered during the build process in Appflow. Due to limited free credit, it was challenging.
 4. **App Store deployment**: Deployment to the Google App Store faced a significant delay due to the identity verification process. The requirement to submit a passport copy and proof of address, and the lead time for verification, prevented the deployment of the app to the Google App Store.
 <div align="center">
-    <img src="./finance-manager/src/assets/google_ver.png" width="60%" alt="ATU Logo">
+    <img src="src/assets/google_ver.png" width="80%" alt="ATU Logo">
 </div>
 
 
@@ -287,3 +289,6 @@ While developing the Budget Planner Application, several challenges were encount
 ## End
 
 [![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-7f7980b617ed060a017424585567c406b6ee15c891e84e1186181d67ecf80aa0.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=12985430)
+
+
+

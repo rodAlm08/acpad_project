@@ -128,12 +128,6 @@ export class HomePage {
     this.menuCtrl.close('start');
   }
 
-  // Logs out the user
-  async logout() {
-    await this.authService.logout();
-    this.router.navigateByUrl('/', { replaceUrl: true });
-  }
-
   // Opens the add budget modal
   async openAddBudgetModal() {
     console.log('Opening Add Budget Modal');
